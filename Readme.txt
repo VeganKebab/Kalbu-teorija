@@ -1,2 +1,1 @@
-Laba diena
-Laba vakara
+Laba diena xd
