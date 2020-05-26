@@ -1,35 +1,73 @@
+%option noyywrap
+%option yylineno
+
 %{
-    #include <string>
-    #include <stdio.h>
-    #include "node.h"
-    #include "parser.hpp"
+#include <string>
+#include <sstream>
+#include "expression.h"
+#include "function.h"
+#include "statement.h"
+#include "parse.tab.h"
+
+using std::string;
+using std::istringstream;
+
+extern void yyerror(const char*, char);
 %}
 
-numbers ([0-9])+
-word ([a-zA-Z])+
+ident [_a-zA-Z][_0-9a-zA-Z]*
+int   [0-9]+
+float [0-9]*\.[0-9]+
 
 %%
 
-{word}                 {sscanf(yytext, "%s", yylval.name); return (STRING);}
-{numbers}              {yylval.number = atoi(yytext); return (NUM);}
-" "                    {return (SPACE);}
-.                       printf("Unknown token!n"); yyterminate();
-"="                     return TOKEN(TEQUAL);
-"=="                    return TOKEN(TCEQ);
-"!="                    return TOKEN(TCNE);
-"<"                     return TOKEN(TCLT);
-"<="                    return TOKEN(TCLE);
-">"                     return TOKEN(TCGT);
-">="                    return TOKEN(TCGE);
-"("                     return TOKEN(TLPAREN);
-")"                     return TOKEN(TRPAREN);
-"{"                     return TOKEN(TLBRACE);
-"}"                     return TOKEN(TRBRACE);
-"."                     return TOKEN(TDOT);
-","                     return TOKEN(TCOMMA);
-"+"                     return TOKEN(TPLUS);
-"-"                     return TOKEN(TMINUS);
-"*"                     return TOKEN(TMUL);
-"/"                     return TOKEN(TDIV);
+"#"[^\r\n]* { /* comments */    }
+[ \t\n]     { /* whitespace */  }
+"+"         { return yytext[0]; }
+"-"         { return yytext[0]; }
+"*"         { return yytext[0]; }
+"/"         { return yytext[0]; }
+"%"         { return yytext[0]; }
+"^"         { return yytext[0]; }
+"("         { return yytext[0]; }
+")"         { return yytext[0]; }
+"="         { return yytext[0]; }
+":"         { return yytext[0]; }
+","         { return yytext[0]; }
+"<"         { return yytext[0]; }
+">"         { return yytext[0]; }
+"+="        { return PLUSEQ;    }
+"-="        { return MINUSEQ;   }
+"*="        { return MULTEQ;    }
+"/="        { return DIVEQ;     }
+"%="        { return MODEQ;     }
+"^="        { return POWEQ;     }
+"++"        { return INC;       }
+"--"        { return DEC;       }
+"<="        { return LE;        }
+">="        { return GE;        }
+"=="        { return EQ;        }
+"!="        { return NE;        }
+"if"        { return IF;        }
+"else"      { return ELSE;      }
+"def"       { return DEF;       }
+"while"     { return WHILE;     }
+"print"     { return PRINT;     }
+"end"       { return END;       }
+"return"    { return RETURN;    }
 
+{ident}  { yylval.ident = new char[strlen(yytext)+1];
+           strcpy(yylval.ident, yytext);
+           return IDENT;
+         }
+
+{float}  { istringstream(string(yytext)) >> yylval.floatVal;
+           return FLOATNUM;
+         }
+
+{int}    { istringstream(string(yytext)) >> yylval.intVal;
+           return INTNUM;
+         }
+
+.        { yyerror("undefined token", yytext[0]); yyterminate(); }
 %%
