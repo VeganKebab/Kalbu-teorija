@@ -65,8 +65,7 @@ program: statements {;}
 statements : statement {;}  // one statment
   | statements statement {;} // more than one statment
   
-// expressions for if and else <<<<<<<<<<<<AND WHILE DABA JAU
-if_else: expression comparison expression {;} // return true/false
+if_else: LPAREN expression comparison expression RPAREN {;} // return true/false
   | expression comparison expression AND if_else {;}
   | expression comparison expression OR if_else {;}
   ;
