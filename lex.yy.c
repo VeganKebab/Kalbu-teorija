@@ -814,194 +814,194 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 22 "hello.l"
+#line 21 "hello.l"
 return IF;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 23 "hello.l"
+#line 22 "hello.l"
 return ELSE;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 24 "hello.l"
+#line 23 "hello.l"
 return AND;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 25 "hello.l"
+#line 24 "hello.l"
 return OR;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 26 "hello.l"
+#line 25 "hello.l"
 return WHILE;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 27 "hello.l"
+#line 26 "hello.l"
 return FOR;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 28 "hello.l"
+#line 27 "hello.l"
 return VOID;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 29 "hello.l"
+#line 28 "hello.l"
 return RETURN;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 30 "hello.l"
+#line 29 "hello.l"
 return PRINT;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 31 "hello.l"
+#line 30 "hello.l"
 return ID;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 33 "hello.l"
+#line 32 "hello.l"
 {yylval.character = yytext[1];   return CHAR;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 34 "hello.l"
+#line 33 "hello.l"
 {yylval.integer = atoi(yytext);  return INT;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 35 "hello.l"
+#line 34 "hello.l"
 {yylval.number = atof(yytext); 	 return FLOAT;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 36 "hello.l"
+#line 35 "hello.l"
 {yylval.dataType = strdup(yytext); return IDENTIFIER;}
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 37 "hello.l"
+#line 36 "hello.l"
 {yylval.string = strdup(yytext); return STRING;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 39 "hello.l"
+#line 38 "hello.l"
 return ASSIGN;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 40 "hello.l"
+#line 39 "hello.l"
 return EQUALS;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 41 "hello.l"
+#line 40 "hello.l"
 return NOTEQUAL;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 42 "hello.l"
+#line 41 "hello.l"
 return LESS;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 43 "hello.l"
+#line 42 "hello.l"
 return LESSOREQUAL;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 44 "hello.l"
+#line 43 "hello.l"
 return GREATER;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 45 "hello.l"
+#line 44 "hello.l"
 return GREATEROREQUAL;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 46 "hello.l"
+#line 45 "hello.l"
 return LPAREN;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 47 "hello.l"
+#line 46 "hello.l"
 return RPAREN;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 48 "hello.l"
+#line 47 "hello.l"
 return LBRACE;
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 49 "hello.l"
+#line 48 "hello.l"
 return RBRACE;
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 50 "hello.l"
+#line 49 "hello.l"
 return DOT;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 51 "hello.l"
+#line 50 "hello.l"
 return COMMA;
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 52 "hello.l"
+#line 51 "hello.l"
 return SEMICOLON;
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 53 "hello.l"
+#line 52 "hello.l"
 return ADD;
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 54 "hello.l"
+#line 53 "hello.l"
 return MINUS;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 55 "hello.l"
+#line 54 "hello.l"
 return MUL;
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 56 "hello.l"
+#line 55 "hello.l"
 return DIV;
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 57 "hello.l"
+#line 56 "hello.l"
 ;
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 60 "hello.l"
+#line 59 "hello.l"
 {yylineno++;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 61 "hello.l"
+#line 60 "hello.l"
 ;
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 62 "hello.l"
+#line 61 "hello.l"
 {InvalidToken();}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 63 "hello.l"
+#line 62 "hello.l"
 ECHO;
 	YY_BREAK
 #line 1008 "lex.yy.c"
@@ -2009,7 +2009,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 63 "hello.l"
+#line 62 "hello.l"
 
 
 int yywrap(void){

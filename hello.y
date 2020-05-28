@@ -77,7 +77,7 @@ statement: var_declaration | func_declaration | selection_declaration | loop_dec
   | print_exp {;}
   ;
 // PRINT expression
-print_exp:  PRINT STRING SEMICOLON {printf("%s\n", $2);}
+print_exp:  PRINT LPAREN STRING RPAREN SEMICOLON {printf("%s\n", $3);}
   ;
 
 // Kodo blokai (funkcijom, if-ui, ciklam)
@@ -86,7 +86,7 @@ block:  LBRACE statements RBRACE {;} // block with statements
   ;
   
 // variable declaration
-var_declaration: IDENTIFIER DATA_TYPE {printf("Function variable %s declared\n", $2);}       
+var_declaration: DATA_TYPE IDENTIFIER  {printf("Function variable %s declared\n", $2);}       
   |   DATA_TYPE expression {;}
   |   IDENTIFIER ASSIGN expression {printf("%s value was changed \n", $1);}
   ;
